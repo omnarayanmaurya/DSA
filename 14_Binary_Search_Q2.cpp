@@ -61,6 +61,7 @@ int binary_search(int arr[],int start,int end,int k){
 int sqrt(int x){
     int s=0;
     int e=x-1;
+    int ans;
     while(s<=e){
         int mid=s+((e-s)/2);
         if(mid*mid==x){
@@ -70,11 +71,25 @@ int sqrt(int x){
             e=mid-1;
         }
         else{
+            ans=mid;
             s=mid+1;
         }
     }
-    return -1;
+    return ans;
 }
+
+double precise(int x,int p,int temp){
+    double f=1;
+    double ans=temp;
+    for(int i=0;i<p;i++){
+        f=f/10;
+        for(double j=ans;j*j<x;j=j+f){
+            ans=j;
+        }
+    }
+    return ans;
+}
+
 int main(){
     int arr[8]={7,8,9,1,2,3,4,5};
     int n=8-1;
@@ -90,5 +105,6 @@ int main(){
     }
     cout<<"enter the no whose sqrt you want ";
     cin>>x;
-    cout<<sqrt(x);
+    cout<<sqrt(x)<<endl;
+    cout<<precise(x,4,sqrt(x));
 }
