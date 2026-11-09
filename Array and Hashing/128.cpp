@@ -38,3 +38,28 @@ public:
 };
 
 
+// sorting
+class Solution {
+public:
+    int longestConsecutive(vector<int>& nums) {
+        int longest=0;
+        int curcon=0;
+        int last=INT_MIN;
+        sort(nums.begin(),nums.end());
+        for(int i=0;i<nums.size();i++){
+            if(nums[i]-1==last){
+                curcon++;
+                last=nums[i];
+            }
+            else if(nums[i]!=last){
+                curcon=1;
+                last=nums[i];
+            }
+            longest=max(longest,curcon);
+        }
+        return longest;
+    }
+};
+
+
+//optimal
