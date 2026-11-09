@@ -1,34 +1,34 @@
-Valid Anagram
-Given two strings s and t, return true if t is an anagram of s, and false otherwise.
-Example 1:
-Input: s = "anagram", t = "nagaram"
-Output: true
-Example 2:
-Input: s = "rat", t = "car"
-Output: false
-Constraints:
-1 <= s.length, t.length <= 5 * 104
-s and t consist of lowercase English letters.
-Follow up: What if the inputs contain Unicode characters? How would you adapt your solution to such a case?
+// Valid Anagram
+// Given two strings s and t, return true if t is an anagram of s, and false otherwise.
+// Example 1:
+// Input: s = "anagram", t = "nagaram"
+// Output: true
+// Example 2:
+// Input: s = "rat", t = "car"
+// Output: false
+// Constraints:
+// 1 <= s.length, t.length <= 5 * 104
+// s and t consist of lowercase English letters.
+// Follow up: What if the inputs contain Unicode characters? How would you adapt your solution to such a case?
 
 
-class Solution {
-public:
-    bool isAnagram(string s, string t) {
-        int freq[26] ={0};
-        for(char c:s){
-            int ind=c-'a';
-            freq[ind]++;
-        }
-        for(char c:t){
-            int ind=c-'a';
-            freq[ind]--;
-        }
-        for(int i=0;i<26;i++){
-            if(freq[i]!=0){
-                return false;
-            }
-        }
-        return true;
-    }
-};
+// class Solution {
+// public:
+//     bool isAnagram(string s, string t) {
+//         int freq[26] ={0};
+//         for(char c:s){
+//             int ind=c-'a';
+//             freq[ind]++;
+//         }
+//         for(char c:t){
+//             int ind=c-'a';
+//             freq[ind]--;
+//         }
+//         for(int i=0;i<26;i++){
+//             if(freq[i]!=0){
+//                 return false;
+//             }
+//         }
+//         return true;
+//     }
+// };
